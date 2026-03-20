@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-
+#include <sys/types.h>
 typedef struct {
     std::string buffer;
     size_t buffer_length;
@@ -19,7 +19,11 @@ InputBuffer* new_input_buffer() {
 }
 
 void read_input(InputBuffer* input_buffer) {
-    std::getline(std::cin, input_buffer->buffer);
+    if(!std::getline(std::cin, input_buffer->buffer)){
+        printf("Error reading input\n");
+        exit(EXIT_FAILURE);
+    }
+
     input_buffer->input_length = input_buffer->buffer.size();
     input_buffer->buffer_length = input_buffer->buffer.capacity();
 }
