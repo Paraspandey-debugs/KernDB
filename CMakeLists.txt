@@ -8,7 +8,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src/core)
 add_executable(repl
     src/core/main.cpp
     src/core/input_buffer.cpp
-    src/core/meat_command.cpp
+    src/core/meta_command.cpp
     src/core/statement.cpp
     src/core/table.cpp
     src/core/row.cpp
